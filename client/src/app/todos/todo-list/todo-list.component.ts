@@ -45,7 +45,7 @@ export class TodoListComponent implements OnInit {
 
   public updateFilter() {
     this.filteredTodos = this.todoService.filterTodos(
-      this.serverFilteredTodos, { status: this.todoStatus.toString() });
+      this.serverFilteredTodos, { status: this.todoStatus });
   }
 
   ngOnInit(): void {
