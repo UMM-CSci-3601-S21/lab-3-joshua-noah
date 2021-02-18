@@ -12,7 +12,7 @@ export class TodoService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getTodos(filters?: {status?: string}): Observable<Todo[]> {
+  getTodos(): Observable<Todo[]> {
     const httpParams: HttpParams = new HttpParams();
 
 

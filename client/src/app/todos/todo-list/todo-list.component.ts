@@ -16,7 +16,7 @@ export class TodoListComponent implements OnInit {
   public filteredTodos: Todo[];
 
   public todoOwner: string;
-  public todoStatus: boolean;
+  public todoStatus: string;
   public todoBody: string;
   public todoCategory: string;
   public viewType: 'card' | 'list' = 'card';
@@ -45,7 +45,7 @@ export class TodoListComponent implements OnInit {
 
   public updateFilter() {
     this.filteredTodos = this.todoService.filterTodos(
-      this.serverFilteredTodos, { status: this.todoStatus.toString() });
+      this.serverFilteredTodos, { status: this.todoStatus });
   }
 
   ngOnInit(): void {
