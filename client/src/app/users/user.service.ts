@@ -11,6 +11,7 @@ export class UserService {
   constructor(private httpClient: HttpClient) {
   }
 
+  //Server-side filtering
   getUsers(filters?: { role?: UserRole; age?: number; company?: string }): Observable<User[]> {
     let httpParams: HttpParams = new HttpParams();
     if (filters) {
@@ -20,6 +21,7 @@ export class UserService {
       if (filters.age) {
         httpParams = httpParams.set('age', filters.age.toString());
       }
+      //Redundant
       if (filters.company) {
         httpParams = httpParams.set('company', filters.company);
       }
@@ -33,6 +35,7 @@ export class UserService {
     return this.httpClient.get<User>(this.userUrl + '/' + id);
   }
 
+  //Client-side filtering
   filterUsers(users: User[], filters: { name?: string; company?: string }): User[] {
 
     let filteredUsers = users;

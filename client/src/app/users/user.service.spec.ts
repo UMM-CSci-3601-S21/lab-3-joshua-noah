@@ -135,7 +135,7 @@ describe('UserService', () => {
         // Check that the request made to that URL was a GET request.
         expect(req.request.method).toEqual('GET');
 
-        // Check that the role parameter was 'admin'
+        // Check that the age parameter was '25'
         expect(req.request.params.get('age')).toEqual('25');
 
         req.flush(testUsers);
