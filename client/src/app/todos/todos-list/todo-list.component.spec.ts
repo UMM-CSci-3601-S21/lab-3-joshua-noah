@@ -18,7 +18,7 @@ import { Observable } from 'rxjs';
 import { MockTodoService } from '../../../testing/todo.service.mock';
 import { Todo } from '../todo';
 import { TodoCardComponent } from '../todo-card/todo-card.component';
-import { TodoListComponent } from '../todo-list/todo-list.component';
+import { TodoListComponent } from './todo-list.component';
 import { TodoService } from '.././todo.service';
 
 const COMMON_IMPORTS: any[] = [

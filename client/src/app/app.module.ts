@@ -32,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
 import { UserCardComponent } from './users/user-card.component';
 import { UserProfileComponent } from './users/user-profile.component';
-import { TodoListComponent } from './todos/todo-list/todo-list.component';
+import { TodoListComponent } from './todos/todos-list/todo-list.component';
 import { TodoCardComponent } from './todos/todo-card/todo-card.component';
 import { TodoProfileComponent } from './todos/todo-profile/todo-profile.component';
 
