@@ -23,16 +23,16 @@ export class TodoService {
     return this.httpClient.get<Todo>(this.todosUrl + '/' + id);
   }
 
-  filterTodos(todos: Todo[], filters: {status?: string }): Todo[] {
+  filterTodos(todos: Todo[], filters: {status?: boolean }): Todo[] {
     let filteredTodos = todos;
 
     if (filters.status) {
       if (filters.status.toString().toLocaleLowerCase() === 'complete') {
-        filters.status = 'true';
+        filters.status = true;
       } else {
-        filters.status = 'false';
+        filters.status = false;
       }
-      filteredTodos = filteredTodos.filter(todo => todo.status.toString().indexOf(filters.status) !== -1);
+      filteredTodos = filteredTodos.filter(todo => todo.status.toString().indexOf(filters.status.toString().toLowerCase()) !== -1);
     }
 
     return filteredTodos;
