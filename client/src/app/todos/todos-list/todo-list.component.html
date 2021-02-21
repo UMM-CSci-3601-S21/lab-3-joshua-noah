@@ -18,8 +18,8 @@
           <mat-form-field class="input-field">
             <mat-label>Category</mat-label>
             <input matInput id="todo-category-input" placeholder="Filter by category"
-            [(ngModel)]="todoCategory" (input)="updateFilter()">
-            <mat-hint>Filtered on client</mat-hint>
+            [(ngModel)]="todoCategory" (input)="getTodosFromServer()">
+            <mat-hint>Filtered on server</mat-hint>
           </mat-form-field>
 
         </div>

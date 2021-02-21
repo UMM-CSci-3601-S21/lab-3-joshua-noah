@@ -29,7 +29,9 @@ export class TodoListComponent implements OnInit {
   constructor(private todoService: TodoService, private snackBar: MatSnackBar) { }
 
   getTodosFromServer() {
-    this.todoService.getTodos().subscribe(returnedTodos => {
+    this.todoService.getTodos( {
+      category: this.todoCategory
+    }).subscribe(returnedTodos => {
       this.serverFilteredTodos = returnedTodos;
       this.updateFilter();
     }, err => {
