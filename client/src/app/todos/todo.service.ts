@@ -12,8 +12,13 @@ export class TodoService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getTodos(): Observable<Todo[]> {
-    const httpParams: HttpParams = new HttpParams();
+  getTodos(filters?: { category?: string }): Observable<Todo[]> {
+    let httpParams: HttpParams = new HttpParams();
+    if (filters) {
+      if (filters.category) {
+        httpParams = httpParams.set('category', filters.category);
+      }
+    }
 
 
     return this.httpClient.get<Todo[]>(this.todosUrl, {params: httpParams,});
