@@ -12,7 +12,7 @@ export class TodoService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getTodos(filters?: { owner?: string; limit?: number}): Observable<Todo[]> {
+  getTodos(filters?: { owner?: string; limit?: number; sort?: string}): Observable<Todo[]> {
     let httpParams: HttpParams = new HttpParams();
     if (filters) {
       if (filters.owner) {
@@ -20,6 +20,9 @@ export class TodoService {
       }
       if (filters.limit) {
         httpParams = httpParams.set('limit', filters.limit.toString());
+      }
+      if (filters.sort) {
+        httpParams = httpParams.set('orderBy', filters.sort);
       }
     }
     return this.httpClient.get<Todo[]>(this.todosUrl, {params: httpParams,});
