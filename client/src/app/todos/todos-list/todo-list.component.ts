@@ -19,6 +19,7 @@ export class TodoListComponent implements OnInit {
   public todoStatus: boolean;
   public todoBody: string;
   public todoCategory: string;
+  public todoLimit: number;
   public viewType: 'card' | 'list' = 'card';
 
   // Inject the TodoService into this component.
@@ -30,7 +31,8 @@ export class TodoListComponent implements OnInit {
 
   getTodosFromServer() {
     this.todoService.getTodos({
-      owner: this.todoOwner
+      owner: this.todoOwner,
+      limit: this.todoLimit
     }).subscribe(returnedTodos => {
       this.serverFilteredTodos = returnedTodos;
       this.updateFilter();

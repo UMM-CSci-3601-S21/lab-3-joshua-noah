@@ -12,11 +12,14 @@ export class TodoService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getTodos(filters?: { owner?: string}): Observable<Todo[]> {
+  getTodos(filters?: { owner?: string; limit?: number}): Observable<Todo[]> {
     let httpParams: HttpParams = new HttpParams();
     if (filters) {
       if (filters.owner) {
         httpParams = httpParams.set('owner', filters.owner);
+      }
+      if (filters.limit) {
+        httpParams = httpParams.set('limit', filters.limit.toString());
       }
     }
     return this.httpClient.get<Todo[]>(this.todosUrl, {params: httpParams,});
