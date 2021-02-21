@@ -29,8 +29,8 @@ export class TodoListComponent implements OnInit {
   constructor(private todoService: TodoService, private snackBar: MatSnackBar) { }
 
   getTodosFromServer() {
-    this.todoService.getTodos( {
-      category: this.todoCategory
+    this.todoService.getTodos({
+      owner: this.todoOwner
     }).subscribe(returnedTodos => {
       this.serverFilteredTodos = returnedTodos;
       this.updateFilter();
@@ -47,7 +47,7 @@ export class TodoListComponent implements OnInit {
 
   public updateFilter() {
     this.filteredTodos = this.todoService.filterTodos(
-      this.serverFilteredTodos, { status: this.todoStatus });
+      this.serverFilteredTodos, { status: this.todoStatus, body: this.todoBody, category: this.todoCategory });
   }
 
   ngOnInit(): void {
